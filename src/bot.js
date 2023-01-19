@@ -9,7 +9,7 @@ const fs = require('fs');
 const client = new Client({ intents: GatewayIntentBits.Guilds });
 client.commands = new Collection();
 client.commandArray = [];
-client.colour = "";
+client.color = "0x04BF8A";
 
 //import functions folder and filters non-js files
 const functionsFolders = fs.readdirSync(`./src/functions`);
