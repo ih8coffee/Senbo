@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 //imports necessary discordjs classes and declares token. 
-const { token } = process.env;
+const { token, color } = process.env;
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const fs = require('fs');
 
@@ -11,7 +11,7 @@ client.commands = new Collection();
 client.buttons = new Collection();
 client.selectMenus = new Collection();
 client.commandArray = [];
-client.color = "0xFFB6C1";
+client.color = color;
 
 //import functions folder and filters non-js files
 const functionsFolders = fs.readdirSync(`./src/functions`);
