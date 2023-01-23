@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, Embed } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -8,10 +8,21 @@ module.exports = {
 		const message = await interaction.deferReply({
 			fetchReply: true
 		});
-
-		const newMessage = `Pong!\nAPI Latency: ${client.ws.ping}ms\nClient Ping: ${message.createdTimestamp - interaction.createdTimestamp}ms`;
+		const embed = new EmbedBuilder()
+			.setTitle('🏓  Pong!')
+			.addFields([
+				{
+					name: ` `,
+					value: `**API Latency**: ${client.ws.ping}ms`,
+				},
+				{
+					name: ` `,
+					value: `**Client Ping**: ​ ​ ${message.createdTimestamp - interaction.createdTimestamp}ms`,
+				}
+			])
+			.setColor(client.color);
 		await interaction.editReply({
-			content: newMessage
+			embeds: [embed]
 		});
 	}
 }

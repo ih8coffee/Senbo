@@ -8,8 +8,10 @@ const fs = require('fs');
 
 const client = new Client({ intents: GatewayIntentBits.Guilds });
 client.commands = new Collection();
+client.buttons = new Collection();
+client.selectMenus = new Collection();
 client.commandArray = [];
-client.color = "0x04BF8A";
+client.color = "0xFFB6C1";
 
 //import functions folder and filters non-js files
 const functionsFolders = fs.readdirSync(`./src/functions`);
@@ -24,4 +26,5 @@ for(const folder of functionsFolders){
 
 client.handleEvents();
 client.handleCommands();
+client.handleComponents();
 client.login(token);
